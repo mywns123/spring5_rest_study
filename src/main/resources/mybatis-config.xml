@@ -9,4 +9,8 @@
 		<!-- 'a_b' >>> 'ab' -->
 	</settings>	
 
+	<typeAliases>
+		<package name="spring5_rest_study.dto"/>
+	</typeAliases>
+	
 </configuration>
