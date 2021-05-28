@@ -46,37 +46,49 @@ public class MemberMapperTest {
 	@Test
 	public void test04SelectbyId() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		
-		long id = 33;		
-		Member member = mapper.selectbyId(id);
+						
+		Member member = mapper.selectbyId(2);
 		log.debug(member.toString());		
 		Assert.assertNotNull(member);
+		
+		log.debug(member.toString());
 	}
 
 	@Test
 	public void test02InsertMember() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 
-		Member member = new Member("test25@test.co.kr", "1111", "test25");
+		Member member = new Member("test06@test.co.kr", "1111", "test06");
 		int res = mapper.insertMember(member);
 		Assert.assertEquals(1, res);
+		log.debug("res id >> " + res);
+		
+		mapper.deleteMember(member.getId());
 	}
 
 	@Test
 	public void test03UpdateMember() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 
-		Member member = new Member("test25@test.co.kr", "1111", "테스트25?!");
+		Member member = new Member("test07@test.co.kr", "1111", "test07");
+		mapper.insertMember(member);
+		
+		member.setName("test07!!");;
 		int res = mapper.updateMember(member);
 		Assert.assertEquals(1, res);
+		
+		mapper.deleteMember(member.getId());
 	}
 
 	@Test
 	public void test05DeleteMember() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 
-		Member member = new Member("test25@test.co.kr", "1111", "테스트25?!");
-		int res = mapper.deleteMember(member);
+		Member member = new Member("test08@test.co.kr", "1111", "test08");
+		mapper.insertMember(member);
+		
+		
+		int res = mapper.deleteMember(member.getId());
 		Assert.assertEquals(1, res);
 	}
 

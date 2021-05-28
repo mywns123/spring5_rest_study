@@ -3,10 +3,7 @@
 <mapper namespace="spring5_rest_study.mappers.MemberMapper">
 
 	<resultMap type="Member" id="resMember">
-		<id property="id" column="id" />
-		<result property="email" column="email" />
-		<result property="password" column="password" />
-		<result property="name" column="name" />
+		<id property="id" column="id" />		
 		<result property="registerDateTime" column="regdate" />
 	</resultMap>
 
@@ -27,6 +24,9 @@
 		insert
 		  into member(email, password, name, regdate)
 		values(#{email}, #{password}, #{name}, now())
+		<selectKey keyProperty="id" resultType="Long"> 
+			select last_insert_id()
+		</selectKey>
 	</insert>
 	
 	<update id="updateMember">
@@ -38,7 +38,7 @@
 	<delete id="deleteMember">
 		delete
 		  from member
-		 where email = #{email}	
+		 where id = #{id}	
 	</delete>
 
 </mapper>

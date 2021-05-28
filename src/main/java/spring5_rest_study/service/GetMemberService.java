@@ -6,5 +6,5 @@ import spring5_rest_study.dto.Member;
 
 @Service
 public interface GetMemberService {
-	Member showMemberbyId(long memId);
+	Member showMemberbyId(long id);
 }

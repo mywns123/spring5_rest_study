@@ -22,15 +22,22 @@ public class RemoveMemberServiceTest {
 	private static final Log log = LogFactory.getLog(MemberMapperTest.class);
 
 	@Autowired
-	private RemoveMemberService service;
+	private RemoveMemberService removeService;
 
+	@Autowired
+	private RegisterMemberService regService;
+	
 	@Test
 	public void testRemoveMember() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		Member member = new Member("test25@test.co.kr", "1111", "테스트25?!");
-		int res = service.removeMember(member);
+		Member member = new Member("test100test.co.kr", "1111", "test100");
+		regService.registerMember(member);
+		
+		
+		int res = removeService.removeMember(member.getId());
 		Assert.assertEquals(1, res);
+		
+		log.debug("res > " + res);
 	}
 
 }

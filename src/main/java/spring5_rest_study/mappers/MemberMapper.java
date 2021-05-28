@@ -11,12 +11,12 @@ public interface MemberMapper {
 
 	List<Member> selectMemberByAll();
 
-	Member selectbyId(long memId);
+	Member selectbyId(long id);
 
 	int insertMember(Member member);
 
 	int updateMember(Member member);
 
-	int deleteMember(Member member);
+	int deleteMember(long id);
 
 }

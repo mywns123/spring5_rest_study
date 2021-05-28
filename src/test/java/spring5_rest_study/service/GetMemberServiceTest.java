@@ -27,9 +27,8 @@ public class GetMemberServiceTest {
 	@Test
 	public void testShowMemberbyId() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		long id = 33;
-		Member member = service.showMemberbyId(id);
+		
+		Member member = service.showMemberbyId(1);
 		log.debug(member.toString());
 		Assert.assertNotNull(member);
 	}
