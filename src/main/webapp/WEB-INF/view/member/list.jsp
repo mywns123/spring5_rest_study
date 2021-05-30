@@ -11,15 +11,15 @@
 <script type="text/javascript">
 	$(function() {
 		var contextPath = "${contextPath}";
-		$.get(contextPath + "/api/members", function(json) {
+		$.get(contextPath + "/api/members",
+			function(json) {
 			var dataLength = json.length;
 			if (dataLength >= 1) {
 				var sCont = "";
 				for (i = 0; i < dataLength; i++) {
 					sCont += "<tr>";
 					sCont += "<td>" + json[i].id + "</td>";
-					sCont += "<td><a href='read?id=" + json[i].id + "'>"
-							+ json[i].name + "</a></td>";
+					sCont += "<td><a href='read?id=" + json[i].id + "'>" + json[i].name + "</a></td>";
 					sCont += "<td>" + json[i].email + "</td>";
 					sCont += "<td>" + json[i].registerDateTime + "</td>";
 					sCont += "</tr>";

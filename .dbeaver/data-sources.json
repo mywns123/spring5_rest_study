@@ -16,6 +16,9 @@
 				"type": "dev",
 				"auth-model": "native",
 				"handlers": {}
+			},
+			"custom-properties": {
+				"database.meta.separate.connection": "false"
 			}
 		},
 		"mysql5-179b0d94800-3c5cd1bef1fd122b": {
@@ -34,6 +37,9 @@
 				"type": "dev",
 				"auth-model": "native",
 				"handlers": {}
+			},
+			"custom-properties": {
+				"database.meta.separate.connection": "false"
 			}
 		}
 	},
