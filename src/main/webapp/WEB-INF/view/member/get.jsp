@@ -9,16 +9,16 @@
 <script type="text/javascript">
 	$(function() {
 		var contextPath = "<%=request.getContextPath()%>";
-		var id = ${id};
+		var id = ${param.id};
 		$.get(contextPath + "/api/members/" + id,
 			function(json) {
 				var sCont = "";
-				sCont += "<tr>";
-				sCont += "<td id='id'>" + json[i].id + "</td>";
-				sCont += "<td>" + json[i].name + "</td>";
-				sCont += "<td>" + json[i].email + "</td>";
-				sCont += "<td>" + json[i].registerDateTime + "</td>";
-				sCont += "</tr>";
+					sCont += "<tr>";
+					sCont += "<td id='id'>" + json.id + "</td>";
+					sCont += "<td>" + json.name + "</td>";
+					sCont += "<td>" + json.email + "</td>";
+					sCont += "<td>" + json.registerDateTime + "</td>";
+					sCont += "</tr>";
 	
 				$("#load:last-child").append(sCont);
 		});
@@ -27,8 +27,7 @@
 			window.location.href = contextPath + "/memberlist";
 		});
 
-		$('#remove').on(
-				"click",
+		$('#remove').on("click",
 				function() {
 					var data = {id : $('#id').text()};
 					alert("data > " + data.id + " : " + $('#id').text());
@@ -50,11 +49,12 @@
 		
 		$('#modify').on("click", function() {
 			window.location.href = contextPath + "/update?id=" + $('#id').text();
-		});
+		}); 
 	});
 </script>
 </head>
 <body>
+${param.id}
 	<table border="1">
 		<thead>
 			<tr>
